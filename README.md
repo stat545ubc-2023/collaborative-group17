@@ -1,9 +1,9 @@
-STAT 545 Collaborative Project
-Milestone 1 due September 23, 2023
+#STAT 545 Collaborative Project
+##Milestone 1 due September 23, 2023
 
-The purpose of this project is to gain familiarity with using GitHub for collaborative work, to gain additional practice with broken R code and rewriting code to address instructions.
+_The purpose of this project is to gain familiarity with using GitHub for collaborative work, to gain additional practice with broken R code and rewriting code to address instructions._
 
-Milestone 1 comprises 8 Exercises:
+Milestone 1 comprises **8** Exercises:
 1. Getting Set Up
 2. Markdown Formatting
 3. Merging Pull Requests
