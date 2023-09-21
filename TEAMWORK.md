@@ -25,14 +25,18 @@ Tiange | Review and knit troubleshooting file to .md format | Lauren
 ## Timing
 - [x] **Issue introductions** due on *2023-09-19*
 - [x] **Issue reponses** due on *2023-09-21*
-- [ ] **Pull requests** due by *10:30 am on 2023-09-21*  
-- [ ] **Merges** due by *10:30 am on 2023-09-21*
-- [ ] **Milestone 1** submission due by *5:00 pm on 2023-09-22*
+- [x] **Pull requests** due by *10:30 am on 2023-09-21*  
+- [x] **Merges** due by *10:30 am on 2023-09-21*
+- [x] **Milestone 1** submission due by *5:00 pm on 2023-09-22*
 
 ## Communication  
 Our team will communicate through both synchronous and asynchronous channels
 - **Synchronous Communication**
-  - In-person team meeting at 10:30 am on 2023-09-19 to meet teammates and discuss strategy for dividing responsibilities
-  - In-person team meeting at 10:30 am on 2023-09-21 to discuss progress and identify roadblocks in preparation for Milestone 1 submission on 2023-09-22
+  * In-person team meeting at 10:30 am on 2023-09-19 to meet teammates and discuss strategy for dividing responsibilities
+  * In-person team meeting at 10:30 am on 2023-09-21 to discuss progress and identify roadblocks in preparation for Milestone 1 submission on 2023-09-22
 - **Asynchronous Communication**
-  - Slack will be used for scheduling in-person meetings, time-sensitive troubleshooting, and other brief communications
+  * Slack will be used for scheduling in-person meetings, time-sensitive troubleshooting, and other brief communications
+- **Communication Guidelines**
+  * All team members will communicate with a high level of respect for one another.
+  * If one teammate is struggling with the material, the others work together to help this teammate
+  * There is zero tolerance for disrespectful behaviour within the team communication channels
