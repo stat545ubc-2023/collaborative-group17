@@ -207,7 +207,11 @@ starWars %>%
 We can find the minimum height and mass within each species, ignoring the missing values: 
 
 ```{r}
-### ERROR HERE ###
+### CORRECTED CODE ###
+starWars %>%
+  group_by(species) %>%
+  summarise(across(c(height, mass), function(x) min(x, na.rm=TRUE)))
+### OLD CODE WITH ERROR ###
 starWars %>%
   group_by(species) %>%
   summarise(across("height", "mass", function(x) min(x, na.rm=TRUE)))
@@ -224,7 +228,20 @@ Manually create a tibble with 4 columns:
 -   `birth_location` should contain three locations (Liverpool, Seattle, and New York).
 
 ```{r}
-### ERROR HERE ###
+### CORRECTED CODE ###
+fakeStarWars <- tribble(
+  ~name,            ~birth_weight,  ~birth_year, ~birth_location,
+  "Luke Skywalker",  1.35      ,   1998        ,  "Liverpool, England",
+  "C-3PO"         ,  1.80      ,   1999        ,  "Liverpool, England",
+  "R2-D2"         ,  2.25      ,   2000        ,  "Seattle, WA",
+  "Darth Vader"   ,  2.70      ,   2001        ,  "Liverpool, England",
+  "Leia Organa"   ,  3.15      ,   2002        ,  "New York, NY",
+  "Owen Lars"     ,  3.60      ,   2003        ,  "Seattle, WA",
+  "Beru Whitesun Iars", 4.05   ,   2004        ,  "Liverpool, England",
+  "R5-D4"         ,  4.50      ,   2005        ,  "New York, NY"
+)
+
+### OLD CODE WITH ERROR ###
 fakeStarWars <- tribble(
   ~name,            ~birth_weight,  ~birth_year, ~birth_location
   "Luke Skywalker",  1.35      ,   1998        ,  Liverpool, England,
