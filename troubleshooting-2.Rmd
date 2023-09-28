@@ -16,6 +16,7 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 [MovieLens](https://dl.acm.org/doi/10.1145/2827872) are a series of datasets widely used in education, that describe movie ratings from the MovieLens [website](https://movielens.org/). There are several MovieLens datasets, collected by the [GroupLens Research Project](https://grouplens.org/datasets/movielens/) at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill's R package, [dslabs](https://cran.r-project.org/web/packages/dslabs/dslabs.pdf), which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops. We'll also load other required packages.
 
 ```{r}
+
 ### CORRECTED CODE ###
 #install.packages("devtools",type="binary") # Uncomment this line if you need to install this package
 #install.packages("dslabs") #Uncomment this line if you need to install this package
@@ -41,6 +42,7 @@ Let's have a look at the dataset! My goal is to:
 -   Have a quick look at the tibble, using a *dplyr function*.
 
 ```{r}
+
 ### CORRECTED CODE ###
 class(dslabs::movielens)
 movieLens <- as_tibble(dslabs::movielens)
@@ -61,6 +63,7 @@ Now that we've had a quick look at the dataset, it would be interesting to explo
 -   have *more than* 4.5 stars, and were filmed *before* 1995.
 
 ```{r}
+
 ### CORRECTED CODE ###
 filter(movieLens, genres == "Drama")
 filter(movieLens, !genres == "Drama")
@@ -79,6 +82,7 @@ filter(movieLens, rating > 4.5, year < 1995)
 While filtering for *all movies that do not belong to the genre drama* above, I noticed something interesting. I want to filter for the same thing again, this time selecting variables **title and genres first,** and then *everything else*. But I want to do this in a robust way, so that (for example) if I end up changing `movieLens` to contain more or less columns some time in the future, the code will still work. Hint: there is a function to select "everything else"...
 
 ```{r}
+
 ### CORRECTED CODE ###
 movieLens %>%
   filter(!genres == "Drama") %>%
@@ -95,6 +99,7 @@ movieLens %>%
 Some of the variables in the `movieLens` dataset are in *camelCase* (in fact, *movieLens* is in camelCase). Let's clean these two variables to use *snake_case* instead, and assign our post-rename object back to "movieLens".
 
 ```{r}
+
 ### CORRECTED CODE ###
 movieLens <- movieLens %>%
   rename(user_id = userId,
@@ -111,6 +116,7 @@ movieLens <- movieLens %>%
 As you already know, `mutate()` defines and inserts new variables into a tibble. There is *another mystery function similar to `mutate()`* that adds the new variable, but also drops existing ones. I wanted to create an `average_rating` column that takes the `mean(rating)` across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?
 
 ```{r}
+
 ### CORRECTED CODE ### 
 transmute(movieLens,
        average_rating = mean(rating)) #transmute() creates a data frame with only the specified computations.
@@ -136,16 +142,24 @@ Without using `group_by()`, I want to find out how many movie reviews there have
 
 ```{r}
 ### ERROR HERE ###
+# corrected code:should use count instead of tally function
 movieLens %>%
-  tally(year)
+  count(year)
+# code with error: 
+# movieLens %>%
+#   tally(year)
 ```
 
 Both `count()` and `tally()` can be grouped by multiple columns. Below, I want to count the number of movie reviews by title and rating, and sort the results.
 
 ```{r}
 ### ERROR HERE ###
+# corrected code: remove the vector on title and rating
 movieLens %>%
-  count(c(title, rating), sort = TRUE)
+  count(title, rating, sort = TRUE)
+# code with errors:
+# movieLens %>%
+#   count(c(title, rating), sort = TRUE)
 ```
 
 Not only do `count()` and `tally()` quickly allow you to count items within your dataset, `add_tally()` and `add_count()` are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.
@@ -164,9 +178,15 @@ Using `summarize()`, we can find the minimum and the maximum rating by title, st
 
 ```{r}
 ### ERROR HERE ###
+# corrected code: first group by title, then use summarize instead of mutate
 movieLens %>%
-  mutate(min_rating = min(rating), 
-         max_rating = max(rating))
+  group_by(title) %>%
+  summarize(min_rating = min(rating), 
+            max_rating = max(rating))
+# code in error
+# movieLens %>%
+#   mutate(min_rating = min(rating), 
+#          max_rating = max(rating))
 ```
 
 ## Exercise 5: Scoped variants with `across()`
